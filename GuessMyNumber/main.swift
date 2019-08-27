@@ -8,6 +8,56 @@
 
 import Foundation
 
+class RockPaperScissors{
+    var randomNumber: Int
+    var computerChoice: String
+    var userNumber: Int
+    
+    init(){
+        randomNumber = Int.random(in: 1...3)
+        self.computerChoice = "Rock"
+        userNumber = 1
+    }
+    
+    func playOneRound(){
+        print("Rock, Paper, Scissors, Shoot!!!!")
+        while let userInput = readLine(){
+            
+            
+            
+            if (randomNumber == 1) { computerChoice = "Rock" }
+            else if (randomNumber == 2){ computerChoice = "Paper" }
+            else { computerChoice = "Scissors" }
+            print(computerChoice)
+            
+            if let userChoice = Int(userInput){
+                while () {
+                    if (userChoice == "Rock"){ userNumber = 1 }
+                    else if (userChoice == "Paper"){ userNumber = 2 }
+                    else if (userChoice == "Scissors"){ userNumber = 3 }
+                    else { print("Invalid Entry")}
+                
+                    if (randomNumber == userNumber) { print("Its a tie!") }
+                    else if ((randomNumber - userNumber) % 3 == 1) { print("You win") }
+                    else { print("You lose") }
+                }
+            }
+        }
+    }
+    
+    func play(){
+        print("Welcome")
+        var goAgain = "Y"
+        while goAgain == "Y"{
+            playOneRound()
+            randomNumber = Int.random(in: 1...3)
+            print("Enter Y to play agian")
+            goAgain = readLine()!
+        }
+        print("Bye!")
+    }
+}
+
 class GuessMyNumberGame{
     var guesses: Int
     var mysteryNumber: Int
@@ -49,6 +99,7 @@ class GuessMyNumberGame{
         print("Bye!")
     }
 }
+
 
 GuessMyNumberGame().play()
 
